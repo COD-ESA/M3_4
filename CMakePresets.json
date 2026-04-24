@@ -1,0 +1,67 @@
+{
+
+    "version": 3,
+
+    "configurePresets": [
+
+        {
+            "name": "base",
+            "displayName": "Learn_F103_F411",
+
+            "generator": "Ninja",
+
+            "cacheVariables": {
+
+                "comment_1": "Указываем систему и архитектуру, чтобы CMake не пытался найти компилятор для хостовой системы",
+
+                "CMAKE_SYSTEM_NAME": "Generic",
+
+                "CMAKE_CROSSCOMPILING": "ON",
+
+                "CMAKE_SYSTEM_PROCESSOR": "arm",
+
+                "comment_2": "отключить компилятор пока нет исходников в проекте, чтобы симайк не давал ошибки при тесте своего конфига избежать запуска линкера",
+
+                "CMAKE_TRY_COMPILE_TARGET_TYPE": "STATIC_LIBRARY",
+
+                "comment_3": "Все компиляторы должны быть добавлены в переменные среды ОС",
+
+                "CMAKE_C_COMPILER": "arm-none-eabi-gcc",
+
+                "CMAKE_CXX_COMPILER": "arm-none-eabi-g++",
+
+                "CMAKE_ASM_COMPILER": "arm-none-eabi-gcc"
+
+            }
+
+        },
+        {
+            "name": "blue_pill_config",
+            "inherits": "base",
+            "displayName": "Blue Pill Config",
+            "binaryDir": "${sourceDir}/build/blue_pill"
+        },
+
+        {
+            "name": "black_pill_config",
+            "inherits": "base",
+            "displayName": "Black Pill Config",
+            "binaryDir": "${sourceDir}/build/black_pill"
+        }
+
+    ],
+
+    "buildPresets": [
+        {
+            "name": "blue",
+            "configurePreset": "blue_pill_config",
+            "targets": ["blue_pill.elf"]
+        },
+        {
+            "name": "black",
+            "configurePreset": "black_pill_config",
+            "targets": ["black_pill.elf"]
+        }
+    ]
+
+}

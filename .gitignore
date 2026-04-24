@@ -1,0 +1,16 @@
+# Игнорируем папку с настройками VS Code
+.vscode/
+
+# Игнорируем папки сборки (там лежат .o, .elf, .bin файлы)
+build/
+out/
+Debug/
+Release/
+
+# Игнорируем временные файлы
+*.log
+*.tmp
+*.ninja_deps
+*.ninja_log
+*.ninja
+compile_commands.json
