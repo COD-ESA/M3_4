@@ -11,7 +11,7 @@ extern uint32_t _estack, _sidata, _sdata, _edata, _sbss, _ebss;
 void Reset_Handler();
 void Default_Handler();
 void MemManage_Handler();
-void TIM1_UP_TIM10_IRQnHandler(void);
+void TIM1_UP_TIM10_IRQHandler(void);
 void __attribute__((weak)) Error_Handler();
 
 void __attribute__((noreturn)) NMI_Handler();
@@ -43,7 +43,7 @@ const ISR_Handler vectors[] = {
     0, // SysTick_Handler
 
     /*IRQ0*/
-    [TIM1_UP_TIM10_IRQn + 16] = TIM1_UP_TIM10_IRQnHandler,
+    [TIM1_UP_TIM10_IRQn + 16] = TIM1_UP_TIM10_IRQHandler,
     Error_Handler,
     Default_Handler, 
     Default_Handler, 
@@ -56,7 +56,7 @@ const ISR_Handler vectors[] = {
     Default_Handler,
     Default_Handler,
     Default_Handler,
-    TIM1_UP_TIM10_IRQnHandler,
+    // TIM1_UP_TIM10_IRQnHandler,
 };
 
 void Reset_Handler(void)

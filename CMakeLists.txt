@@ -69,6 +69,7 @@ set(BLACK_PILL_SOURCES
         black_pill/Src/initFlash.c
         black_pill/Src/led_light.c
         black_pill/Src/configTIM1.c
+        black_pill/Src/configPWM.c
         # black_pill/Src/InitTim3.c
         black_pill/Startup/startup.c
 

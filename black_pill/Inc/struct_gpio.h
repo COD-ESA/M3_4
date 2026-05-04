@@ -47,10 +47,12 @@ typedef struct
 #define APB2_BASE                    (BEGINDING + 0x00010000UL)        /*АДРЕС НАЧАЛА ШИНЫ APB2*/
 
 #define BEGINDING_AHB1               (BEGINDING + 0x00020000UL)        /*АДРЕС НАЧАЛА ШИНЫ AHB1*/ 
-#define GPIOC_BASE_CUSTOM            (BEGINDING_AHB1 + 0x00000800UL)     /*АДРЕС НАЧАЛА ПОРТА GPIOC*/
+#define GPIOC_BASE_CUSTOM            (BEGINDING_AHB1 + 0x00000800UL)     /**/
+#define GPIOA_BASE_CUSTOM            (BEGINDING_AHB1)                    /*АДРЕС НАЧАЛА ПОРТА GPIOA */   
 #define TIM1_BASE_CUSTOM             (APB2_BASE + 0x00000000UL)        /*АДРЕС НАЧАЛА TIM1*/  
 
 #define GPIOC_CUSTOM                 ((CUSTOM_GPIO_TypeDef *) GPIOC_BASE_CUSTOM)
+#define GPIOA_CUSTOM                 ((CUSTOM_GPIO_TypeDef *) GPIOA_BASE_CUSTOM)
 
 /*APB2 peripherals*/
 #define TIM1_CUSTOM                  ((CUCTOM_TIM1_TypeDef *) TIM1_BASE_CUSTOM)

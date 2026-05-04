@@ -30,6 +30,11 @@ void config_clock_and_output_PC(void);
 void toglle_pc13(void);
 void toggle_pc13_mod(void);
 void configTim1(void);
+void config_Tim1_PWM(void);
+uint16_t* init_table(void);
+void delay(volatile uint32_t t);
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
