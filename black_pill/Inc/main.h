@@ -27,13 +27,15 @@ void InitFlash(void);
 // int initClocking_Debug(void);
 void initClockingmod(void);
 void config_clock_and_output_PC(void);
+void start_NVICs(void);
 void toglle_pc13(void);
 void toggle_pc13_mod(void);
 void configTim1(void);
 void config_Tim1_PWM(void);
 uint16_t* init_table(void);
 void delay(volatile uint32_t t);
-
+void init_table_for_PWM_DMA(void);
+void config_Tim1_PWM_DMA(void);
 
 #ifdef __cplusplus
 extern "C" {

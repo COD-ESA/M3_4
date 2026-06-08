@@ -65,11 +65,13 @@ set(BLUE_PILL_SOURCES
 #сохраняю в переменную BLACK_PILL_SOURCES список файлов исходников
 set(BLACK_PILL_SOURCES
         black_pill/Src/main.c
+        black_pill/Src/NVIC_EnableIRQ.c
         black_pill/Src/initClockingMod.c
         black_pill/Src/initFlash.c
         black_pill/Src/led_light.c
         black_pill/Src/configTIM1.c
         black_pill/Src/configPWM.c
+        black_pill/Src/configPWM_TIM_DMA.c
         # black_pill/Src/InitTim3.c
         black_pill/Startup/startup.c
 

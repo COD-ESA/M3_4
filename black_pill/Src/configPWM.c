@@ -38,11 +38,19 @@ void config_Tim1_PWM(void)
     GPIOA_CUSTOM->AFRH |= GPIO_AFRH_AFSEL8_0;
 
     /*НАСТРОЙКА ШИМ*/
-    RCC->APB2ENR |= RCC_APB2ENR_TIM1EN; // Включаем тактирование TIM1
+    RCC->APB2ENR |= RCC_APB2ENR_TIM1EN; // Включаем тактирование модуля TIM1
 
-    TIM1->PSC = 96 - 1;     // делим до 1 МГц
-    TIM1->ARR = 1000 - 1;   // получаем 1 кГц
+    // TIM1->PSC = 96 - 1;     // делим до 1 мГц
+    // TIM1->ARR = 1000 - 1;   // получаем 1 кГц
+
+    // TIM1->PSC = 192 - 1;     // делим до 500 кГц
+    // TIM1->ARR = 1000 - 1;   // получаем 500Гц
     
+    // TIM1->PSC = 96 - 1;     // делим до 100 кГц
+    // TIM1->ARR = 10000 - 1;   // получаем 100Гц
+
+    TIM1->PSC = 100 - 1;     // делим до 50 кГц
+    TIM1->ARR = 19200 - 1;   // получаем 50Гц
     // 3. скважность
     // TIM1->CCR1 = 500;
 
@@ -51,7 +59,7 @@ void config_Tim1_PWM(void)
     TIM1->CCMR1 |= (6 << TIM_CCMR1_OC1M_Pos);
     TIM1->CCMR1 |= TIM_CCMR1_OC1PE;
 
-    // 5. включить канал
+    // 5. включить канал на выход
     TIM1->CCER |= TIM_CCER_CC1E;
 
     // 6. главный выход (ОБЯЗАТЕЛЬНО)

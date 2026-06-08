@@ -56,7 +56,6 @@ const ISR_Handler vectors[] = {
     Default_Handler,
     Default_Handler,
     Default_Handler,
-    // TIM1_UP_TIM10_IRQnHandler,
 };
 
 void Reset_Handler(void)

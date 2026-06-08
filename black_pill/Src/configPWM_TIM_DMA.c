@@ -5,6 +5,7 @@
 
 uint16_t pwm_table[LUT_SIZE];
 
+/*генерируемая таблица значений для PWM - "дыхание"*/
 void init_table_for_PWM_DMA(void)
 {
     for (int i = 0; i < LUT_SIZE; i++)
@@ -53,9 +54,7 @@ void config_Tim1_PWM_DMA(void)
 
     TIM1->DIER |= TIM_DIER_UDE; // Update DMA request
 
-    TIM1->CR1 |= TIM_CR1_ARPE;
-
-    TIM1->CCR1 = 500;
+    TIM1->CR1 |= TIM_CR1_ARPE; //Включаю теневой регистр (Shadow Register)
 
     DMA2_Stream5->CR |= DMA_SxCR_EN; // включаем
 }
